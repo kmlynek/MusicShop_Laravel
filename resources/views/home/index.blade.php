@@ -23,6 +23,16 @@
             </div>
         </div>
     </a>
+</div></br>
+<div class="col-sm-12 col-md-6 col-lg-4">
+    <a href="/brands" style="text-decoration:none">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title h5 text-black clearfix">Marki</p>
+            </div>
+        </div>
+    </a>
 </div>
+
 
 @endsection

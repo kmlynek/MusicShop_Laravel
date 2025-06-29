@@ -23,3 +23,13 @@ Route::post('/categories', [CategoryController::class, 'store']);
 Route::get('/categories/edit/{id}', [CategoryController::class, 'edit']);
 Route::post('/categories/update/{id}', [CategoryController::class, 'update']);
 Route::get('/categories/delete/{id}', [CategoryController::class, 'destroy']);
+
+// Lista marek
+use App\Http\Controllers\BrandController;
+
+Route::get('/brands', [BrandController::class, 'index']);
+Route::get('/brands/create', [BrandController::class, 'create']);
+Route::post('/brands', [BrandController::class, 'store']);
+Route::get('/brands/edit/{id}', [BrandController::class, 'edit']);
+Route::post('/brands/update/{id}', [BrandController::class, 'update']);
+Route::get('/brands/delete/{id}', [BrandController::class, 'destroy']);
