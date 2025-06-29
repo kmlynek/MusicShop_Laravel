@@ -12,6 +12,8 @@
         <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="/products">Produkty</a></li>
             <li class="nav-item"><a class="nav-link" href="/login">Logowanie</a></li>
+            <li class="nav-item"><a class="nav-link" href="/categories">Kategorie</a></li>
+
         </ul>
     </div>
 </nav>

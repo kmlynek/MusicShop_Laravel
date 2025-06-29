@@ -4,8 +4,6 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Lista produktów</h1>
     <a href="/products/create" class="btn btn-success">+ Dodaj produkt</a>
-
-
 </div>
 
 <div class="row">

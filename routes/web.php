@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 // Strona główna
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -14,3 +15,11 @@ Route::post('/products', [ProductController::class, 'store']);
 Route::get('/products/edit/{id}', [ProductController::class, 'edit']);
 Route::post('/products/update/{id}', [ProductController::class, 'update']);
 Route::get('/products/delete/{id}', [ProductController::class, 'destroy']);
+
+// Lista kategorii
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/create', [CategoryController::class, 'create']);
+Route::post('/categories', [CategoryController::class, 'store']);
+Route::get('/categories/edit/{id}', [CategoryController::class, 'edit']);
+Route::post('/categories/update/{id}', [CategoryController::class, 'update']);
+Route::get('/categories/delete/{id}', [CategoryController::class, 'destroy']);
