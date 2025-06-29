@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 
 // Strona główna (widok zalezy od uzytkownika)
 Route::get('/', [HomeController::class, 'index']);
@@ -45,6 +46,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+// Użytkownicy
+    Route::get('/admin/users', [UserController::class, 'index']);
+    Route::get('/admin/users/edit/{id}', [UserController::class, 'edit']);
+    Route::post('/admin/users/update/{id}', [UserController::class, 'update']);
+    Route::get('/admin/users/deactivate/{id}', [UserController::class, 'deactivate']);
 });
 
 // Domyślne przekierowanie po logowaniu 
@@ -52,4 +59,4 @@ Route::get('/dashboard', function () {
     return redirect('/');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

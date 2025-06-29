@@ -12,18 +12,24 @@
         <div class="container">
             <a class="navbar-brand" href="/">Sklep Muzyczny</a>
             <ul class="navbar-nav ms-auto">
-                <!-- <li class="nav-item"><a class="nav-link" href="/products">Produkty</a></li>
+                @auth
+                @if(Auth::user()->is_admin)
+                <li class="nav-item"><a class="nav-link" href="/products">Produkty</a></li>
                 <li class="nav-item"><a class="nav-link" href="/categories">Kategorie</a></li>
-                <li class="nav-item"><a class="nav-link" href="/brands">Marki</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="/brands">Marki</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/users">Użytkownicy</a></li>
+                @endif
+                @endauth
+
 
                 @auth
                 <li class="nav-item">
-                    <span class="nav-link" >Witaj, {{ Auth::user()->name }}!</span>
+                    <span class="nav-link">Witaj, {{ Auth::user()->name }}!</span>
                 </li>
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button class="nav-link btn btn-link">Wyloguj</button>
+                         <button class="nav-link btn btn-outline-danger ms-2">Wyloguj</button>
                     </form>
                 </li>
                 @else
