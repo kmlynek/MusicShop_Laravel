@@ -5,9 +5,9 @@
 @auth
 <h2>Witaj ponownie, {{ Auth::user()->name }}!</h2>
 @if(Auth::user()->is_admin)
-    <p>Możesz zarządzać całym asortymentem!</p>
+<p>Możesz zarządzać całym asortymentem!</p>
 @else
-    <p>Możesz korzystać ze sklepu i przeglądać aktualne produkty.</p>
+<p>Możesz korzystać ze sklepu i przeglądać aktualne produkty.</p>
 @endif
 
 
@@ -27,7 +27,7 @@
         <a href="/categories" class="text-decoration-none">
             <div class="card">
                 <div class="card-body">
-                    <p class="card-title h5 text-black clearfix">Kategorie (admin)</p>
+                    <p class="card-title h5 text-black clearfix">Kategorie</p>
                 </div>
             </div>
         </a>
@@ -37,7 +37,7 @@
         <a href="/brands" class="text-decoration-none">
             <div class="card">
                 <div class="card-body">
-                    <p class="card-title h5 text-black clearfix">Marki (admin)</p>
+                    <p class="card-title h5 text-black clearfix">Marki</p>
                 </div>
             </div>
         </a>
