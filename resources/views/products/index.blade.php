@@ -12,6 +12,11 @@
 </div>
 
 <div class="row">
+    <form method="GET" action="/products" class="mb-4 d-flex">
+        <input type="text" name="q" class="form-control me-2" placeholder="Szukaj produktu..." value="{{ request('q') }}">
+        <button type="submit" class="btn btn-outline-primary">Szukaj</button>
+    </form>
+
     @forelse($products as $product)
     <div class="col-md-4 mb-4">
         <div class="card shadow-sm">

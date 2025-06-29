@@ -15,11 +15,19 @@ class BrandController extends Controller
         $this->service = $service;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $brands = $this->service->getActiveBrands();
+        $query = Brand::where('is_active', true);
+
+        if ($request->has('q')) {
+            $query->where('name', 'like', '%' . $request->q . '%');
+        }
+
+        $brands = $query->get();
+
         return view('brands.index', compact('brands'));
     }
+
 
     public function create()
     {

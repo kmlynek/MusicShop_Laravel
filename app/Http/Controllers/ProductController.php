@@ -19,11 +19,19 @@ class ProductController extends Controller
     }
 
     // LISTA PRODUKTÓW
-    public function index()
+    public function index(Request $request)
     {
-        $products = $this->service->getActiveProducts();
-        return view('products.index', ['products' => $products]);
+        $query = Product::where('is_active', true);
+
+        if ($request->has('q')) {
+            $query->where('name', 'like', '%' . $request->q . '%');
+        }
+
+        $products = $query->get();
+
+        return view('products.index', compact('products'));
     }
+
 
     // FORMULARZ DODAWANIA
     public function create()

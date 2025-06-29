@@ -15,11 +15,19 @@ class CategoryController extends Controller
         $this->service = $service;
     }
 
-    public function index()
-    {
-        $categories = $this->service->getActiveCategories();
-        return view('categories.index', compact('categories'));
+ public function index(Request $request)
+{
+    $query = Category::where('is_active', true);
+
+    if ($request->has('q')) {
+        $query->where('name', 'like', '%' . $request->q . '%');
     }
+
+    $categories = $query->get();
+
+    return view('categories.index', compact('categories'));
+}
+
 
     public function create()
     {
