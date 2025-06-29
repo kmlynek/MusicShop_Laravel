@@ -1,0 +1,27 @@
+@extends('layouts.main')
+
+@section('content')
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Lista produktów</h1>
+        <a href="#" class="btn btn-success">+ Dodaj produkt</a>
+    </div>
+
+    <div class="row">
+        @forelse($products as $product)
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $product->name }}</h5>
+                        <p class="card-text">{{ $product->description }}</p>
+                        <p class="card-text fw-bold">Cena: {{ $product->price }} zł</p>
+
+                        <a href="#" class="btn btn-primary btn-sm">Edytuj</a>
+                        <a href="#" class="btn btn-danger btn-sm">Usuń</a>
+                    </div>
+                </div>
+            </div>
+        @empty
+            <p class="text-muted">Brak produktów do wyświetlenia.</p>
+        @endforelse
+    </div>
+@endsection
